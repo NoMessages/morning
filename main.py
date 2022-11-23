@@ -1,4 +1,5 @@
 from datetime import date, datetime
+
 import math
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage, WeChatTemplate
@@ -45,14 +46,14 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temp, low, high, airQuality, wind = get_weather()
-data = {"weather":{"value":"今日天气状况："+ wea},
-"temperature":{"value":"当前温度"+ temp},
-"low":{"value":"今日最低气温"+ low},
-"high":{"value":"今日最高气温 "+ high},
-"airQuality":{"value":"空气质量 "+ airQuality},
-"wind":{"value":"今日风向 "+  wind},
-"love_days":{"value": "今天是在一起的第  "+get_count()+"  天"},
-"birthday_left":{"value":"距离生日还有 "+ get_birthday() +"天"},
+data = {"weather":{"value":wea},
+"temperature":{"value":temp},
+"low":{"value":low},
+"high":{"value":high},
+"airQuality":{"value":airQuality},
+"wind":{"value": wind},
+"love_days":{"value":get_count()},
+"birthday_left":{"value":get_birthday()},
 "words":{"value":get_words(),
 "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
