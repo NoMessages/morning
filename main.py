@@ -1,5 +1,4 @@
 from datetime import date, datetime
-from borax.calendars.lunardate import LunarDate
 import math
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage, WeChatTemplate
