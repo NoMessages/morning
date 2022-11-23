@@ -1,4 +1,5 @@
 from datetime import date, datetime
+from borax.calendars.lunardate import LunarDate
 import math
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage, WeChatTemplate
@@ -22,7 +23,7 @@ def get_weather():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
   weather = res['data']['list'][0]
-  return weather['weather'], weather['temp'], weather['low'], weather['high'], weather['airQuality'], weather['wind']
+  return weather['weather'], math.floor(weather['temp']), math.floor(weather['low']), math.floor(weather['high']), weather['airQuality'], weather['wind']
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
@@ -45,14 +46,14 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temp, low, high, airQuality, wind = get_weather()
-data = {"weather":{"value":wea},
-"temperature":{"value":temp},
-"low":{"value":low},
-"high":{"value":high},
-"airQuality":{"value":airQuality},
-"wind":{"value":wind},
-"love_days":{"value":get_count()},
-"birthday_left":{"value":get_birthday()},
+data = {"weather":{"value":"今日天气状况："+ wea},
+"temperature":{"value":"当前温度"+ temp},
+"low":{"value":"今日最低气温"+ low},
+"high":{"value":"今日最高气温 "+ high},
+"airQuality":{"value":"空气质量 "+ airQuality},
+"wind":{"value":"今日风向 "+  wind},
+"love_days":{"value": "今天是在一起的第  "+get_count()+"  天"},
+"birthday_left":{"value":"距离生日还有 "+ get_birthday() +"天"},
 "words":{"value":get_words(),
 "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
