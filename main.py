@@ -22,8 +22,8 @@ template_id = os.environ["TEMPLATE_ID"]
 def get_weather():
   url = "http://t.weather.itboy.net/api/weather/city/101280800"
   res = requests.get(url).json()
-  detail_info = res['cityInfo']['data']
-  weather = res['cityInfo']['data']['forecast'][0]
+  detail_info = res['data']
+  weather = res['data']['forecast'][0]
   return weather['type'], math.floor(detail_info['wendu']), math.floor(weather['low']), math.floor(weather['high']), weather['aqi'], weather['fl']
 
 def get_count():
