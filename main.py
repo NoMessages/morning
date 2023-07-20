@@ -146,7 +146,7 @@ def get_words():
   return "中午不知道吃啥？菜单参考：-----》\n【红烧肉】【蒜香油麦菜】【爆炒午餐肉】【炝拌干豆腐丝】【鱼香肉丝】【番茄炒蛋】【茄子炒肉沫】【韭菜炒蛋】【酱烧豆腐】【排骨饭】"
 # 6.周年函数
 def get_cele_desc():
-  return "已经在一起"+str(get_total_year())+"周年"+get_count()+"天哒,还有"+str(get_cele_date())+"天开启第"+str((get_total_year()+1))+"周年~";
+  return "已经在一起"+str(get_total_year())+"周年"+str(get_count())+"天哒,还有"+str(get_cele_date())+"天开启第"+str((get_total_year()+1))+"周年~";
 
 client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
