@@ -157,4 +157,5 @@ data = {"today":{"value":get_daliy_time_desc()},
 "words": {"value":get_words()},
 "celeyear": {"value":get_cele_desc()}}
 res = wm.send_template(user_id, template_id, data)
+print(data)
 print(res)
