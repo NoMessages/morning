@@ -130,7 +130,7 @@ def get_count():
 
 # 1. 展示今日
 def get_daliy_time_desc():
-  return "今天是："+str(_datetime.datetime.now()).split(".")[0]+" , " + get_week_day(_datetime.datetime.now());
+  return "今天是："+str(_datetime.datetime.now()).split(" ")[0]+ get_week_day(_datetime.datetime.now());
 # 2. 天气
 def get_weather_desc():
   wea, temp, low, high, airQuality, wind, notice = get_weather();
