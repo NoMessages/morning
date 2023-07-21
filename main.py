@@ -83,9 +83,6 @@ chuxi = get_next_birthday(nowTime, chuxi_day, 2)
 lun_str = str(lunar1)
 chuxi_str = str(chuxi)
 
-print("下次生日日期为：", lun_str.split(" ")[0])
-print("下次除夕为：", chuxi_str.split(" ")[0])
-
 # 生日日期
 birth = _datetime.datetime(lunar1.year, lunar1.month, lunar1.day)
 # 除夕日期
@@ -134,7 +131,7 @@ def get_daliy_time_desc():
 # 2. 天气
 def get_weather_desc():
   wea, wendu, low, high, aqi, fl, notice = get_weather();
-  return "今日天气："+wea+",当前温度:"+wendu+",今日最高温度："+high+",今日最低温度："+low+",风向等级："+fl+",今日小tips："+notice+",空气质量指数为："+aqi;
+  return "今日天气："+wea+",当前温度:"+wendu+",今日最高温度："+high+",今日最低温度："+low+",风向等级："+fl+",今日小tips："+notice+",空气质量指数为："+str(aqi);
 # 3.生日统计,
 def get_birthday(d, date_times):
   return "距离生日小美女还有："+str(d.days)+"天"+str(date_times[0])+"小时"+str(date_times[1])+"分钟";
@@ -157,5 +154,3 @@ data = {"today":{"value":get_daliy_time_desc()},
 "words": {"value":get_words()},
 "celeyear": {"value":get_cele_desc()}}
 res = wm.send_template(user_id, template_id, data)
-print(data)
-print(res)
