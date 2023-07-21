@@ -137,10 +137,10 @@ def get_weather_desc_2():
 def get_weather_desc_3():
   return " 风向等级："+fl+",今日空气质量："+str(aqi)+" ";
 def get_weather_desc_4():
-  return " 小tips:" + notice +" ";
+  return " 今日出行推荐:" + notice +" ";
 # 3.生日统计
 def get_birthday(d, date_times):
-  return "距离生日小美女还有："+str(d.days)+"天"+str(date_times[0])+"小时"+str(date_times[1])+"分钟  ";
+  return "距离生日还有："+str(d.days)+"天"+str(date_times[0])+"小时"+str(date_times[1])+"分钟  ";
 # 4.除夕倒计时
 def get_chuxi_days(cx_d, data_chuxi):
   return "距离除夕还有："+str(cx_d.days)+"天"+str(data_chuxi[0])+"小时"+str(data_chuxi[1])+"分钟  ";
