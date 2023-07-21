@@ -128,25 +128,25 @@ wea, wendu, low, high, aqi, fl, notice = get_weather();
 
 # 1. 展示今日
 def get_daliy_time_desc():
-  return "今天是："+str(_datetime.datetime.now()).split(" ")[0]+ get_week_day(_datetime.datetime.now())+"<br/>";
+  return "今天是："+str(_datetime.datetime.now()).split(" ")[0]+ get_week_day(_datetime.datetime.now())+" ";
 # 2. 天气
 def get_weather_desc_1():
-  return " 今日天气："+wea+",当前温度:"+wendu+"<br/>";
+  return " 今日天气："+wea+",当前温度:"+wendu+" ";
 def get_weather_desc_2():
-  return " 最高温度："+high+",最低温度："+low+"<br/>";
+  return " 最高温度："+high+",最低温度："+low+" ";
 def get_weather_desc_3():
-  return " 风向等级："+fl+",今日空气质量："+str(aqi)+"<br/>";
+  return " 风向等级："+fl+",今日空气质量："+str(aqi)+" ";
 def get_weather_desc_4():
-  return " 小tips:" + notice +"<br/>";
+  return " 小tips:" + notice +" ";
 # 3.生日统计
 def get_birthday(d, date_times):
-  return "距离生日小美女还有："+str(d.days)+"天"+str(date_times[0])+"小时"+str(date_times[1])+"分钟 <br/>";
+  return "距离生日小美女还有："+str(d.days)+"天"+str(date_times[0])+"小时"+str(date_times[1])+"分钟  ";
 # 4.除夕倒计时
 def get_chuxi_days(cx_d, data_chuxi):
-  return "距离除夕还有："+str(cx_d.days)+"天"+str(data_chuxi[0])+"小时"+str(data_chuxi[1])+"分钟 <br/>";
+  return "距离除夕还有："+str(cx_d.days)+"天"+str(data_chuxi[0])+"小时"+str(data_chuxi[1])+"分钟  ";
 # 5.好吃推荐
 def get_words():
-  return "【红烧肉】【蒜香油麦菜】【爆炒午餐肉】【炝拌干豆腐丝】【鱼香肉丝】【番茄炒蛋】【茄子炒肉沫】【韭菜炒蛋】【酱烧豆腐】【排骨饭】<br/>"
+  return "【红烧肉】【蒜香油麦菜】【爆炒午餐肉】【炝拌干豆腐丝】【鱼香肉丝】【番茄炒蛋】【茄子炒肉沫】【韭菜炒蛋】【酱烧豆腐】【排骨饭】 "
 # 6.周年函数
 def get_cele_desc():
   return "已经在一起"+str(get_total_year())+"周年"+str(get_count())+"天哒,还有"+str(get_cele_date())+"天开启第"+str((get_total_year()+1))+"周年~";
@@ -164,7 +164,6 @@ data = {"today":{"value":get_daliy_time_desc()},
 "next_year": {"value":chuxi_str.split(" ")[0]},
 "words": {"value":get_words()},
 "celeyear": {"value":get_cele_desc()}}
-
 
 
 res = wm.send_template(user_id, template_id, data)
