@@ -147,7 +147,12 @@ def get_weather_desc_4():
   return " 今日出行推荐:" + notice +" ";
 # 3.生日统计
 def get_birthday(d, date_times):
-  return "距离生日还有："+str(d.days)+"天"+str(date_times[0])+"小时"+str(date_times[1])+"分钟  ";
+    if d.days == 0:
+        return "提前祝宝贝生日快乐！明天是你的生日哟，怕你忘记哒，我来提醒你哒！";
+    elif d.days == -1:
+        return "祝宝贝今天生日快乐！！天天开心！每一个计算都是花费了很大的心思的呢！（快夸我嘻嘻）";
+    else:
+        return "距离生日还有：" + str(d.days) + "天" + str(date_times[0]) + "小时" + str(date_times[1]) + "分钟  ";
 # 4.除夕倒计时
 def get_chuxi_days(cx_d, data_chuxi):
   return "距离除夕还有："+str(cx_d.days)+"天"+str(data_chuxi[0])+"小时"+str(data_chuxi[1])+"分钟  ";
