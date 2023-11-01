@@ -95,7 +95,14 @@ cx_d = chuxi_days - nowTime;
 
 # 生日日期字符串化
 str_days = str(d);
-date_times = str_days.split(",")[1].split(":")
+# date_times = str_days.split(",")[1].split(":")
+try:
+   date_times = str_days.split(",")[1].split(":")
+   print("date_times" , str_days)
+   # date_times 1 day, 14:11:24.710256
+except Exception as e:# 写一个except
+    # date 14:10:56.364070
+    date_times = str_days.split(":")
 
 # 除夕日期字符串化
 str_chuxi = str(cx_d);
